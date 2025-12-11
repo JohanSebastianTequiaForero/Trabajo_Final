@@ -1,4 +1,4 @@
-import { getDB } from "./db.js";
+import { getDB } from "../api/db.js";
 
 export default async function handler(req, res) {
   try {
