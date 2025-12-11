@@ -1,8 +1,9 @@
-Todo App MySQL — Proyecto Final Integrador
-Aplicación fullstack para gestión de tareas (Todo App), desarrollada como proyecto final integrador.
-Incluye frontend en React con Vite, backend en Node.js y base de datos MySQL desplegada en la nube.
 
-Vista Previa
+📌 Todo App MySQL — Proyecto Final Integrador
+Aplicación fullstack para gestión de tareas (Todo App), desarrollada como proyecto final integrador.
+Incluye frontend en React + Vite, backend en Node.js + Express y base de datos MySQL desplegada en la nube.
+
+🚀 Vista Previa
 Interfaz limpia y moderna
 
 Diseño responsivo
@@ -15,7 +16,7 @@ Persistencia en MySQL
 
 Deploy en Vercel + Render
 
-1. Stack Tecnológico
+🛠️ 1. Stack Tecnológico
 Frontend
 React 18
 
@@ -30,7 +31,7 @@ Node.js
 
 Express
 
-MySQL (driver mysql2/promise)
+MySQL (mysql2/promise)
 
 Dotenv
 
@@ -43,7 +44,7 @@ Render (Backend)
 
 GitHub (Código fuente)
 
-2. URLs del Proyecto
+🌐 2. URLs del Proyecto
 Repositorio
 https://github.com/JohanSebastianTequiaForero/Trabajo_Final
 
@@ -60,7 +61,7 @@ http://localhost:3000
 Producción:
 https://trabajo-final-em1b.onrender.com
 
-3. Requisitos Previos
+📦 3. Requisitos Previos
 Node.js v18+
 
 npm v9+
@@ -69,7 +70,7 @@ Git
 
 MySQL Local (opcional)
 
-4. Instalación y Ejecución en Local
+🔧 4. Instalación y Ejecución en Local
 4.1 Clonar repositorio
 git clone https://github.com/JohanSebastianTequiaForero/Trabajo_Final.git
 cd Trabajo_Final
@@ -85,7 +86,6 @@ DB_PORT=18625
 DB_USER=root
 DB_PASS=tglcKRfEzZDaEwKMoesbEfUbccfCdoyP
 DB_NAME=railway
-
 Ejecutar:
 
 node index.js
@@ -106,15 +106,15 @@ npm run dev
 Frontend en:
 https://todo-app-mysql-git-main-johansebastiantequiaforeros-projects.vercel.app?_vercel_share=gWGgT0jvuLbFKhmZ79cpM03tArtcw2Ed
 
-5. Estructura del Proyecto
+🗂️ 5. Estructura del Proyecto
 Trabajo_Final/
-├── backend/
+├── backend/                     # Node.js + Express
 │   ├── index.js
 │   ├── conexion.js
 │   ├── package.json
 │   └── .env.example
 │
-├── frontend/
+├── frontend/                    # React + Vite
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── ToDoList.jsx
@@ -128,7 +128,7 @@ Trabajo_Final/
 │   └── .env.example
 │
 └── README.md
-6. Documentación de la API (API REST)
+📚 6. Documentación de la API (API REST)
 Base URL desarrollo:
 https://railway.com/invite/7sGxinCHPQE
 
@@ -139,8 +139,10 @@ https://trabajo-final-em1b.onrender.com
 Obtiene todas las tareas.
 
 Request
+
 curl https://trabajofinal-production-4e79.up.railway.app/todos
 Response 200 OK
+
 [
   {
     "id": 1,
@@ -154,6 +156,7 @@ Response 200 OK
 Crea una nueva tarea.
 
 Request
+
 curl -X POST https://trabajofinal-production-4e79.up.railway.app/todos \
 -H "Content-Type: application/json" \
 -d '{
@@ -161,11 +164,13 @@ curl -X POST https://trabajofinal-production-4e79.up.railway.app/todos \
   "descripcion": "30 minutos"
 }'
 Body esperado
+
 {
-  "titulo": "texto",     // Requerido
-  "descripcion": "texto" // Opcional
+  "titulo": "texto",
+  "descripcion": "texto"
 }
 Response 201 Created
+
 {
   "id": 2,
   "titulo": "Hacer ejercicio",
@@ -173,12 +178,11 @@ Response 201 Created
   "estado": "pendiente",
   "fecha_creacion": "2025-02-01T12:00:00.000Z"
 }
-Error 400
-{ "error": "El título es obligatorio" }
 6.3 PUT /tareas/:id
 Actualiza una tarea existente.
 
 Request
+
 curl -X PUT https://trabajofinal-production-4e79.up.railway.app/todos/1 \
 -H "Content-Type: application/json" \
 -d '{
@@ -186,13 +190,8 @@ curl -X PUT https://trabajofinal-production-4e79.up.railway.app/todos/1 \
   "descripcion": "Pan sin azúcar",
   "estado": "completada"
 }'
-Body esperado
-{
-  "titulo": "texto",
-  "descripcion": "texto",
-  "estado": "pendiente | completada"
-}
 Response 200 OK
+
 {
   "id": 1,
   "titulo": "Comprar pan integral",
@@ -200,36 +199,37 @@ Response 200 OK
   "estado": "completada"
 }
 6.4 DELETE /tareas/:id
-Elimina una tarea.
-
 Request
+
 curl -X DELETE https://trabajofinal-production-4e79.up.railway.app/todos/1
 Response 200 OK
+
 { "mensaje": "Tarea eliminada correctamente" }
-Error 404
-{ "error": "Tarea no encontrada" }
-7. Códigos de Estado HTTP
+📘 7. Códigos de Estado HTTP
 Código	Descripción
 200	OK
 201	Created
 400	Bad Request
 404	Not Found
 500	Server Error
-8. Troubleshooting
+🛠️ 8. Troubleshooting
 “CORS Error”
-Verificar que cors() esté habilitado en el backend.
+
+Verificar que cors() esté habilitado.
 
 Revisar VITE_API_URL en frontend.
 
 “Error de conexión a MySQL”
+
 Revisar credenciales del .env.
 
 Asegurar que MySQL esté corriendo.
 
 “Cannot GET /”
-Recordar que la API solo responde a rutas /tareas.
 
-9. Autores
+La API solo responde a rutas /tareas.
+
+👥 9. Autores
 Proyecto realizado por:
 
 Johan Sebastián Tequia Forero
@@ -238,6 +238,6 @@ Ana María Guzmán
 
 Alixon Guzmán
 
-10. Licencia
+📄 10. Licencia
 Proyecto académico. Uso educativo.
 
