@@ -1,34 +1,31 @@
 body {
+    background: #f4f6f9;
     font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    margin: 0;
-    padding: 0;
 }
 
 .container {
     max-width: 700px;
-    margin: 40px auto;
-    background: white;
+    margin: 35px auto;
     padding: 25px;
+    background: white;
     border-radius: 12px;
-    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
 }
 
-input {
+.input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 10px;
-    border-radius: 8px;
     border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
-button {
+.btn {
     padding: 10px 15px;
     margin-top: 10px;
     border: none;
@@ -37,50 +34,56 @@ button {
     font-weight: bold;
 }
 
-button.primary {
+.primary {
     background: #007bff;
     color: white;
 }
 
-button.primary:hover {
-    background: #0056c7;
+.primary:hover {
+    background: #005fcc;
 }
 
-button.warning {
+.warning {
     background: orange;
     color: white;
 }
 
-button.danger {
+.info {
+    background: #17a2b8;
+    color: white;
+}
+
+.danger {
     background: red;
     color: white;
 }
 
-.todo-card {
-    background: #ffffff;
-    border-left: 5px solid #007bff;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
+.lista {
+    list-style: none;
+    padding: 0;
 }
 
-.todo-status {
+.todo-card {
+    background: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #007bff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.status {
     font-weight: bold;
 }
 
-.todo-status.pending {
+.pendiente {
     color: red;
 }
 
-.todo-status.completed {
+.completado {
     color: green;
 }
 
-.todo-buttons {
-    margin-top: 10px;
-}
-
-.todo-buttons button {
-    margin-right: 8px;
+.acciones button {
+    margin-right: 10px;
 }

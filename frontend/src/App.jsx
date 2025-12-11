@@ -5,10 +5,11 @@ import {
     deleteTodo,
     updateTodo,
 } from "./services/api";
-import "./App.css";
+import "./App.css"; // 👈 asegúrate de importar el CSS
 
 function App() {
     const [todos, setTodos] = useState([]);
+
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [editing, setEditing] = useState(null);
@@ -27,7 +28,7 @@ function App() {
             alert("El título es obligatorio");
             return;
         }
-        await createTodo({ title, description });
+        await createTodo({ title, description, status: "pendiente" });
         setTitle("");
         setDescription("");
         loadTodos();
@@ -43,7 +44,7 @@ function App() {
         await updateTodo(editing, {
             title,
             description,
-            status: "pending",
+            status: "pendiente",
         });
         setEditing(null);
         setTitle("");
@@ -52,11 +53,15 @@ function App() {
     };
 
     const toggleStatus = async (todo) => {
+        const nuevoEstado =
+            todo.status === "pendiente" ? "completado" : "pendiente";
+
         await updateTodo(todo.id, {
             title: todo.title,
             description: todo.description,
-            status: todo.status === "pending" ? "completed" : "pending",
+            status: nuevoEstado,
         });
+
         loadTodos();
     };
 
@@ -65,24 +70,29 @@ function App() {
             <h1>Gestión de tareas</h1>
 
             <input
+                className="input"
                 placeholder="Título (obligatorio)"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
-
             <input
+                className="input"
                 placeholder="Descripción (opcional)"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
 
             {editing ? (
-                <button className="primary" onClick={handleUpdate}>Guardar cambios</button>
+                <button className="btn primary" onClick={handleUpdate}>
+                    Guardar cambios
+                </button>
             ) : (
-                <button className="primary" onClick={handleCreate}>Crear tarea</button>
+                <button className="btn primary" onClick={handleCreate}>
+                    Crear tarea
+                </button>
             )}
 
-            <ul style={{ listStyle: "none", padding: 0 }}>
+            <ul className="lista">
                 {todos.map((todo) => (
                     <li key={todo.id} className="todo-card">
                         <h3>{todo.title}</h3>
@@ -90,30 +100,38 @@ function App() {
 
                         <p>
                             Estado:{" "}
-                            <span className={`todo-status ${todo.status}`}>
+                            <span
+                                className={
+                                    todo.status === "pendiente"
+                                        ? "status pendiente"
+                                        : "status completado"
+                                }
+                            >
                                 {todo.status}
                             </span>
                         </p>
 
                         <p>Fecha: {new Date(todo.created_at).toLocaleString()}</p>
 
-                        <div className="todo-buttons">
+                        <div className="acciones">
                             <button
-                                className="warning"
+                                className="btn warning"
                                 onClick={() => toggleStatus(todo)}
                             >
-                                {todo.status === "pending" ? "Marcar completada" : "Marcar pendiente"}
+                                {todo.status === "pendiente"
+                                    ? "Marcar completada"
+                                    : "Marcar pendiente"}
                             </button>
 
                             <button
-                                className="primary"
+                                className="btn info"
                                 onClick={() => startEdit(todo)}
                             >
                                 Editar
                             </button>
 
                             <button
-                                className="danger"
+                                className="btn danger"
                                 onClick={() => deleteTodo(todo.id)}
                             >
                                 Eliminar
